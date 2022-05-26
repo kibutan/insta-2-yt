@@ -1,17 +1,36 @@
 import { faker } from '@faker-js/faker'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Story from './Story'
 function Stories() {
+  const [suggestions, setSuggestions] = useState([])
+
   useEffect(() => {
+    const name = faker.name.findName()
     const suggestions = [...Array(20)].map((_, i) => ({
-      ...faker.helpers.useCard,
+      address: faker.address.streetAddress(),
+      avatar: faker.image.avatar(),
+      company: faker.company.companyName(),
+      dob: faker.date.past(),
+      email: faker.internet.email(),
       id: i,
+      name: faker.name.firstName(),
+      phone: faker.phone.phoneNumber(),
+      userName: faker.internet.userName(),
+      website: faker.internet.domainName(),
     }))
-    console.log(suggestions)
+    setSuggestions(suggestions)
   }, [])
 
   return (
-    <div>
+    <div className="mt-8 flex space-x-2 overflow-x-scroll rounded-sm border border-gray-200 bg-white ">
       {/* Story */}
+      {suggestions.map((profile) => (
+        <Story
+          key={profile.id}
+          img={profile.avatar}
+          username={profile.userName}
+        />
+      ))}
       {/* Story */}
       {/* Story */}
       {/* Story */}
