@@ -22,7 +22,7 @@ function Stories() {
   }, [])
 
   return (
-    <div className="mt-8 flex space-x-2 overflow-x-scroll rounded-sm border border-gray-200 bg-white ">
+    <div className="mt-8 flex space-x-2 overflow-x-scroll rounded-sm border border-gray-200 bg-white scrollbar-thin scrollbar-thumb-black">
       {/* Story */}
       {suggestions.map((profile) => (
         <Story
