@@ -1,4 +1,10 @@
-import { DotsHorizontalIcon } from '@heroicons/react/outline'
+import {
+  BookmarkIcon,
+  ChatIcon,
+  DotsHorizontalIcon,
+  HeartIcon,
+  PaperAirplaneIcon,
+} from '@heroicons/react/outline'
 
 function Post({ id, username, useImg, img, caption }) {
   return (
@@ -14,8 +20,16 @@ function Post({ id, username, useImg, img, caption }) {
         <DotsHorizontalIcon className="h-5" />
       </div>
       {/* img */}
-
+      <img src={img} className="w-full object-cover" alt="" />
       {/* Buttons */}
+      <div className="flex justify-between px-4 pt-4">
+        <div className="flex space-x-4">
+          <HeartIcon className="btn" />
+          <ChatIcon className="btn" />
+          <PaperAirplaneIcon className="btn" />
+        </div>
+        <BookmarkIcon className="btn" />
+      </div>
       {/* caption */}
       {/* comments */}
       {/* input Bos */}
