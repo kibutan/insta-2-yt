@@ -1,6 +1,6 @@
-https://youtu.be/6fNy0iD3hsk?t=26684
+https://youtu.be/6fNy0iD3hsk?t=27497
 
-7:24:44
+7:38:17
 
 動画中に使用している faker.js は破壊されているため、
 後続の Faker.js に置き換えている。
