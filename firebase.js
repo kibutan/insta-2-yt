@@ -6,13 +6,14 @@ import { getStorage } from 'firebase/storage'
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// Import the functions you need from the SDKs you need
 const firebaseConfig = {
   apiKey: 'AIzaSyAPBfus4f82yfX3rTMvYfREEFLc0sT6DVA',
   authDomain: 'insta-2-yt-83ab2.firebaseapp.com',
   projectId: 'insta-2-yt-83ab2',
   storageBucket: 'insta-2-yt-83ab2.appspot.com',
   messagingSenderId: '87599586238',
-  appId: '1:87599586238:web:206e965542ed4eabc1b7ef',
+  appId: '1:87599586238:web:077a25a9085dbeb9c1b7ef',
 }
 
 // Initialize Firebase
