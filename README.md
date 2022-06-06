@@ -13,3 +13,9 @@ https://youtu.be/6fNy0iD3hsk?t=29049
 Nextauth を使った認証ページを追加したが、Providers の取得がうまく出来ないため認証ページが表示出来ない。
 動画と同じようにやっていると思っているがどこか違うのか、Firebase の設定か.env.local の書き方か。
 何れにせよ、認証ページが表示されない。
+
+https://youtu.be/6fNy0iD3hsk?t=29361
+8:09:21
+
+上記を無視して GCP の設定を変えた後、\_app.tsx に session うんぬんを追記した。
+動かなくなる気がしないでもない。
