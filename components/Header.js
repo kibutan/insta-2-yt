@@ -8,8 +8,11 @@ import {
   MenuIcon,
 } from '@heroicons/react/outline'
 import { HomeIcon } from '@heroicons/react/solid'
+import { useSession } from 'next-auth/react'
 
 function Header() {
+  const { data: session } = useSession()
+  console.log(session)
   return (
     <div className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-5 flex max-w-6xl justify-between lg:mx-auto">
@@ -43,6 +46,8 @@ function Header() {
           </div>
         </div>
         {/* right */}
+
+        {/* {session?<></>:<button oClick={signIn}>Sign In</button>} Nextauthがうまく使えていないのでセッションの有無で要素を切り替えることはしない */}
         <div className="flex items-center justify-end space-x-4">
           <HomeIcon className="navBtn" />
           <MenuIcon className="h-6 cursor-pointer md:hidden" />
@@ -59,6 +64,7 @@ function Header() {
 
           <img
             src="https://links.papareact.com/3ke"
+            // src={session?.user?.image}
             alt="profile pic"
             className="h-10 cursor-pointer rounded-full"
           />
