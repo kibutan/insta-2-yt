@@ -24,5 +24,5 @@ https://youtu.be/6fNy0iD3hsk?t=29660
 やはりサーバエラーによりうまく動かせないので、session によって条件分岐するところは無視なりコメントにして進める
 8:14:20
 
-https://youtu.be/6fNy0iD3hsk?t=30092
-8:21:32
+https://youtu.be/6fNy0iD3hsk?t=30410
+8:26:50
