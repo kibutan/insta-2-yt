@@ -9,15 +9,21 @@ import {
 } from '@heroicons/react/outline'
 import { HomeIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 function Header() {
   const { data: session } = useSession()
+  const router = useRouter()
+
   console.log(session)
   return (
     <div className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-5 flex max-w-6xl justify-between lg:mx-auto">
         {/* Left  */}
-        <div className="relative hidden w-24 cursor-pointer lg:inline-grid">
+        <div
+          onClick={() => router.push('/')}
+          className="relative hidden w-24 cursor-pointer lg:inline-grid"
+        >
           <Image
             src="https://links.papareact.com/ocw"
             layout="fill"
@@ -25,7 +31,10 @@ function Header() {
           />
         </div>
 
-        <div className="relative w-10 flex-shrink-0 cursor-pointer lg:hidden">
+        <div
+          onClick={() => router.push('/')}
+          className="relative w-10 flex-shrink-0 cursor-pointer lg:hidden"
+        >
           <Image
             src="https://links.papareact.com/jjm"
             layout="fill"
@@ -49,7 +58,7 @@ function Header() {
 
         {/* {session?<></>:<button oClick={signIn}>Sign In</button>} Nextauthがうまく使えていないのでセッションの有無で要素を切り替えることはしない */}
         <div className="flex items-center justify-end space-x-4">
-          <HomeIcon className="navBtn" />
+          <HomeIcon onClick={() => router.push('/')} className="navBtn" />
           <MenuIcon className="h-6 cursor-pointer md:hidden" />
 
           <div className="navBtn relative">
