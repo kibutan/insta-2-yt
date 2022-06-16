@@ -11,6 +11,7 @@ import { HomeIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 
 function Header() {
   const { data: session } = useSession()
