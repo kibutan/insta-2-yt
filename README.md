@@ -35,3 +35,6 @@ https://youtu.be/6fNy0iD3hsk?t=31325
 
 https://youtu.be/6fNy0iD3hsk?t=31862
 8:51:02
+
+https://youtu.be/6fNy0iD3hsk?t=32049
+8:54:09
