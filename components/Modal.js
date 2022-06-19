@@ -2,6 +2,7 @@ import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtom'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import { CameraIcon } from '@heroicons/react/outline'
 function Modal() {
   const [open, setOpen] = useRecoilState(modalState)
   return (
@@ -42,6 +43,9 @@ function Modal() {
           >
             <div className="inline-block transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 sm:align-middle">
               <div>
+                <div onClick={() => filePickerRef.current.click()} className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 cursor-pointer">
+                  <CameraIcon className='h-6 w-6 text-red-600' aria-hidden="true" />
+                </div>
                 <div>
                   <div className="mt-3 text-center sm:mt-5">
                     <Dialog.Title
