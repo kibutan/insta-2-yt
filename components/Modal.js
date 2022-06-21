@@ -3,11 +3,36 @@ import { modalState } from '../atoms/modalAtom'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useRef, useState } from 'react'
 import { CameraIcon } from '@heroicons/react/outline'
+import { addDoc, collection, serverTimestamp } from '@firebase/firestore'
+import { db, storage } from '../firebase'
+import { useSession } from 'next-auth/react'
+
 function Modal() {
+  // const {data:session} =useSession()
   const [open, setOpen] = useRecoilState(modalState)
   const filePickerRef = useRef(null)
   const [selectedFile, setSelectedFile] = useState(null)
   const captionRef = useRef(null)
+  const [loading, setLoading] = useState()
+
+  const uploadPost = async () => {
+    if (loading) return
+    setLoading(true)
+
+    // Create a Post and add to firestore "posts" collection
+    //  get the post ID for the newly created posr
+    //  upload the image to fireimage with the post id
+    // get a download url from fb storage and update the original post with image
+    const docRef = await addDoc(collection(db, 'posts'), {
+      // username: session.user.username,
+      username: 'dummy_user_name',
+      caption: captionRef.value,
+      // profileImage: session.user.image,
+      profileImage: 'https://i.pravatar.cc/300',
+      timestamp: serverTimestamp(),
+    })
+  }
+
   const addImageToPost = (e) => {
     const reader = new FileReader()
     if (e.target.files[0]) {
