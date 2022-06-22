@@ -3,9 +3,15 @@ import { modalState } from '../atoms/modalAtom'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useRef, useState } from 'react'
 import { CameraIcon } from '@heroicons/react/outline'
-import { addDoc, collection, serverTimestamp } from '@firebase/firestore'
+import {
+  addDoc,
+  collection,
+  serverTimestamp,
+  updateDoc,
+} from '@firebase/firestore'
 import { db, storage } from '../firebase'
 import { useSession } from 'next-auth/react'
+import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 
 function Modal() {
   // const {data:session} =useSession()
@@ -31,6 +37,20 @@ function Modal() {
       profileImage: 'https://i.pravatar.cc/300',
       timestamp: serverTimestamp(),
     })
+
+    const imageRef = ref(storage, `posts/${docRef.id}/image`)
+    await uploadString(imageRef, selectedFile, 'data_url').then(
+      async (snapshot) => {
+        const downloadURL = await getDownloadURL(imageRef)
+        await updateDoc(doc(db, 'posts', docRef.id), {
+          image: downloadURL,
+        })
+      }
+    )
+
+    setOpen(false)
+    setLoading(false)
+    setSelectedFile(false)
   }
 
   const addImageToPost = (e) => {
