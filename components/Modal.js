@@ -6,6 +6,7 @@ import { CameraIcon } from '@heroicons/react/outline'
 import {
   addDoc,
   collection,
+  doc,
   serverTimestamp,
   updateDoc,
 } from '@firebase/firestore'
@@ -32,7 +33,7 @@ function Modal() {
     const docRef = await addDoc(collection(db, 'posts'), {
       // username: session.user.username,
       username: 'dummy_user_name',
-      caption: captionRef.value,
+      caption: captionRef.current.value,
       // profileImage: session.user.image,
       profileImage: 'https://i.pravatar.cc/300',
       timestamp: serverTimestamp(),
@@ -151,9 +152,11 @@ function Modal() {
                 <div className="mt-5 sm:mt-6">
                   <button
                     type="button"
+                    disabled={!selectedFile}
                     className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-300 hover:disabled:bg-gray-300 sm:text-sm"
+                    onClick={uploadPost}
                   >
-                    upload post
+                    {loading ? 'uploading...' : 'Upload Post'}
                   </button>
                 </div>
               </div>
